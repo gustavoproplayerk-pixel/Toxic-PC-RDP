@@ -172,7 +172,7 @@ jobs:
           function Yes($v){ "$v" -match '^(?i:true|1|yes|on)$' }
           
           # Modified logic: Unlimited unless it's a quick_test
-          $runtime = 999999
+          $runtime = 0
           if (Yes("${{ inputs.quick_test }}")) { $runtime = 5 }
           
           "RUNTIME_MINUTES=$runtime" | Out-File -Append $env:GITHUB_ENV
